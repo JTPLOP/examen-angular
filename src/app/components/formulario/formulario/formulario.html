@@ -1,0 +1,315 @@
+<div class="formulario-div m-3 p-2">
+    <h1>Formulario de Registro - Veterinaria</h1>
+
+    <form [formGroup]="formVeterinaria" class="p-4">
+
+        <div class="mb-3">
+            <label for="nombreInput" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreInput" formControlName="nombre">
+
+            @if (nombre.invalid && (nombre.dirty || nombre.touched)) {
+            <div class="alert alert-danger">
+                @if (nombre.hasError('required')) {
+                <div>Nombre es obligatorio</div>
+                }
+                @if (nombre.hasError('minlength')) {
+                <div>Mínimo 2 caracteres</div>
+                }
+
+                @if (nombre.hasError('maxlength')) {
+                <div>Mínimo 30 caracteres</div>
+                }
+
+                @if (nombre.hasError('maxlength')) {
+                <div>Mínimo 30 caracteres</div>
+                }
+
+                @if (nombre.hasError('pattern')) {
+                <div>Solo se permiten letras</div>
+                }
+            </div>
+            }
+
+        </div>
+
+        <div class="mb-3">
+            <label for="apellidosInput" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellidosInput" formControlName="apellidos">
+
+            @if (apellidos.invalid && (apellidos.dirty || apellidos.touched)) {
+            <div class="alert alert-danger">
+                @if (apellidos.hasError('required')) {
+                <div>Nombre es obligatorio</div>
+                }
+                @if (apellidos.hasError('minlength')) {
+                <div>Mínimo 2 caracteres</div>
+                }
+
+                @if (apellidos.hasError('maxlength')) {
+                <div>Mínimo 50 caracteres</div>
+                }
+
+                @if (apellidos.hasError('pattern')) {
+                <div>Solo se permiten letras</div>
+                }
+            </div>
+            }
+
+        </div>
+
+        <div class="mb-3">
+            <label for="telefonoInput" class="form-label">Teléfono de Contacto</label>
+            <input type="text" class="form-control" id="telefonoInput" formControlName="telefono">
+
+            @if (telefono.invalid && (telefono.dirty || telefono.touched)) {
+            <div class="alert alert-danger">
+                @if (telefono.hasError('required')) {
+                <div>Nombre es obligatorio</div>
+                }
+
+                @if (telefono.hasError('pattern')) {
+                <div>Solo se permiten letras</div>
+                }
+            </div>
+            }
+
+        </div>
+
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailInput" formControlName="email">
+            
+            
+            @if (email.invalid && (email.dirty || email.touched)) {
+            <div class="alert alert-danger">
+                @if (email.hasError('required')) {
+                <div>Email es obligatorio</div>
+                }
+
+                @if (email.hasError('email')) {
+                <div>Formato de email no válido</div>
+                }
+            </div>
+            }
+
+        </div>
+
+        <h2>Sobre tu mascota:</h2>
+
+        <div class="mb-3">
+            <label for="nombreMascotaInput" class="form-label">Nombre de la mascota</label>
+            <input type="text" class="form-control" id="nombreMascotaInput" formControlName="nombreMascota">
+        
+            @if (nombreMascota.invalid && (nombreMascota.dirty || nombreMascota.touched)) {
+            <div class="alert alert-danger">
+                @if (nombreMascota.hasError('required')) {
+                <div>El nombre de la mascota es obligatorio</div>
+                }
+                @if (nombreMascota.hasError('minlength')) {
+                <div>Entre 2 y 20 caracteres</div>
+                }
+
+                @if (nombreMascota.hasError('maxlength')) {
+                <div>Entre 2 y 20 caracteres</div>
+                }
+
+                @if (nombreMascota.hasError('pattern')) {
+                <div>Solo letras, espacios y guiones</div>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="especieInput" class="form-label">Especie de la mascota</label>
+            <select class="form-select" id="especieInput" formControlName="especieMascota">
+                <option selected>Elija la especie</option>
+                <option value="1">Perro</option>
+                <option value="2">Gato</option>
+                <option value="3">Ave</option>
+                <option value="4">Otro</option>
+            </select>
+
+             @if (especieMascota.invalid && (especieMascota.dirty || especieMascota.touched)) {
+            <div class="alert alert-danger">
+                @if (especieMascota.hasError('required')) {
+                <div>Selecciona una especie</div>
+                }
+                
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="nombreMascotaInput" class="form-label">Sexo</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" value="1" id="machoRadio"
+                    formControlName="sexoMascota">
+                <label class="form-check-label" for="radioDefault1">
+                    Macho
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" value="2" id="hembraRadio"
+                    formControlName="sexoMascota">
+                <label class="form-check-label" for="radioDefault2">
+                    Hembra
+                </label>
+            </div>
+
+            @if (sexoMascota.invalid && (sexoMascota.dirty || sexoMascota.touched)) {
+            <div class="alert alert-danger">
+                @if (sexoMascota.hasError('required')) {
+                <div>Indica el sexo de la mascota</div>
+                }
+                
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="razaInput" class="form-label">Raza</label>
+            <input type="text" class="form-control" id="razaInput" formControlName="razaMascota">
+        
+            @if (razaMascota.invalid && (razaMascota.dirty || razaMascota.touched)) {
+            <div class="alert alert-danger">
+                @if (razaMascota.hasError('maxlength')) {
+                <div>Máximo 40 caracteres</div>
+                }
+                
+            </div>
+            }
+        
+        </div>
+
+
+        <div class="mb-3">
+            <label for="edadMascotaInput" class="form-label">Edad </label>
+            <input type="number" class="form-control" id="edadMascotaInput" formControlName="edadMascota">
+        
+            @if (edadMascota.invalid && (edadMascota.dirty || edadMascota.touched)) {
+            <div class="alert alert-danger">
+                @if (edadMascota.hasError('required')) {
+                <div>La edad es obligatoria</div>
+                }
+
+                @if (edadMascota.hasError('min')) {
+                <div>La edad debe estar entre 0 y 30 años</div>
+                }
+
+                @if (edadMascota.hasError('max')) {
+                <div>La edad debe estar entre 0 y 30 años</div>
+                }
+
+            </div>
+            }
+        
+        </div>
+
+        <div class="mb-3">
+            <label for="pesoMascotaInput" class="form-label">Peso </label>
+            <input type="number" class="form-control" id="pesoMascotaInput" formControlName="pesoMascota">
+        
+            @if (pesoMascota.invalid && (pesoMascota.dirty || pesoMascota.touched)) {
+            <div class="alert alert-danger">
+                @if (pesoMascota.hasError('required')) {
+                <div>El peso es obligatorio</div>
+                }
+
+                @if (pesoMascota.hasError('min')) {
+                <div>El peso debe estar entre 0,1 y 90 kg</div>
+                }
+
+                @if (pesoMascota.hasError('max')) {
+                <div>El peso debe estar entre 0,1 y 90 kg</div>
+                }
+
+            </div>
+            }
+        
+        
+        </div>
+
+        <div class="mb-3">
+            <label for="microChipInput" class="form-label">microChipMascota</label>
+            <input type="text" class="form-control" id="microChipInput" formControlName="microChipMascota">
+        
+            @if (microChipMascota.invalid && (microChipMascota.dirty || microChipMascota.touched)) {
+            <div class="alert alert-danger">
+                @if (microChipMascota.hasError('required')) {
+                <div>Michochip obligatorio</div>
+                }
+
+                @if (pesoMascota.hasError('pattern')) {
+                <div>El microchip debe tener exactamente 15 dígitos numéricos</div>
+                }
+
+            </div>
+            }
+        
+        </div>
+
+        <h2>Últimos Pasos:</h2>
+
+        <div class="mb-3">
+            <label for="contrasena" class="form-label">Agregar Contraseña</label>
+            <input type="text" class="form-control" id="contrasena" formControlName="contrasena">
+        
+            @if (contrasena.invalid && (contrasena.dirty || contrasena.touched)) {
+            <div class="alert alert-danger">
+                @if (contrasena.hasError('required')) {
+                <div>Contraseña erronea.</div>
+                }
+
+                @if (contrasena.hasError('pattern')) {
+                <div>El patron de la contraseña esta mal</div>
+                }
+
+                @if (contrasena.hasError('minlength')) {
+                <div>Entre 10 y 24 caracteres</div>
+                }
+
+                @if (contrasena.hasError('maxlength')) {
+                <div>Entre 10 y 24 caracteres</div>
+                }
+
+            </div>
+            }
+        
+        </div>
+
+        <div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="politicaCheck"
+                    formControlName="politicaPrivacidad">
+                <label class="form-check-label" for="politicaCheck">
+                    Acepto la política de privacidad.
+                </label>
+
+                @if (politicaPrivacidad.invalid && (politicaPrivacidad.dirty || politicaPrivacidad.touched)) {
+            <div class="alert alert-danger">
+                @if (politicaPrivacidad.hasError('required')) {
+                <div>Politica obligatoria.</div>
+                }
+
+
+            </div>
+            }
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="novedadesCheck"
+                    formControlName="novedadesCheck">
+                <label class="form-check-label" for="novedadesCheck">
+                    Acepto la política de privacidad.
+                </label>
+            </div>
+
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-warning" [disabled]="!formVeterinaria.valid">Enviar</button>
+        </div>
+    </form>
+
+</div>
